@@ -1,0 +1,9 @@
+Eike Parchioli --> RA:24.00682-3 
+
+Gustavo Guimarães --> RA:24.00805-2 
+
+Guilherme Monti Duarte --> RA:24.00888-5
+
+Mateusz Chaves Slawacki--> RA:24.01627-6 
+
+https://github.com/guimduarte/T2Algoritmos.git

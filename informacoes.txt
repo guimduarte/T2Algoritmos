@@ -1,0 +1,74 @@
+Tarefa 2: Gerenciamento de Arquivos em um Sistema de Impressão
+
+1) Impressora com Fila de Impressão (Simulação com Fila - FIFO)
+Você foi contratado para desenvolver um sistema de gerenciamento de impressões em uma gráfica rápida. Os documentos são colocados em uma fila, sendo impressos na ordem de chegada (primeiro a entrar, primeiro a ser impresso — FIFO).
+
+Requisitos do Sistema:
+Entrada de Documentos:
+
+Um documento entra na fila de impressão (é adicionado ao final da fila).
+
+O sistema registra o nome do arquivo, o nome do usuário e o horário de solicitação (uma classe deve conter essas informações).
+
+Impressão de Documento:
+
+O primeiro documento da fila é impresso (removido da frente).
+
+O sistema deve registrar o horário de impressão e calcular o tempo total de espera.
+
+Consulta de Documento:
+
+O sistema deve permitir consultar se um determinado documento está na fila, sua posição e o horário de solicitação.
+
+Capacidade da Fila:
+
+A fila de impressão tem uma capacidade máxima definida. O sistema deve impedir novos envios quando a capacidade máxima for atingida.
+
+Objetivo:
+
+Desenvolver um programa que implemente essa lógica utilizando uma estrutura de dados de fila. O programa deve simular a entrada e saída de documentos e fornecer relatórios sobre a ocupação atual da fila e o tempo de espera de cada documento impresso.
+
+2) Pilha de Reimpressão Emergencial (Simulação com Pilha - LIFO)
+Além da fila principal, a gráfica mantém uma pilha para casos de reimpressão emergencial, em que documentos precisam ser reimpressos rapidamente por falhas de impressão ou outros problemas. Os documentos mais recentes têm prioridade (último a entrar, primeiro a ser reimpresso — LIFO).
+
+Requisitos do Sistema:
+Solicitação de Reimpressão:
+
+Um documento é adicionado ao topo da pilha de reimpressão.
+
+O sistema deve registra o nome do arquivo, o nome do usuário e o horário da solicitação.
+
+Execução de Reimpressão:
+
+O documento que está no topo da pilha é reimpresso (removido do topo).
+
+O sistema deve registrar o horário da reimpressão e calcular o tempo total decorrido desde a solicitação.
+
+Consulta de Documento:
+
+O sistema deve permitir verificar se um documento está na pilha de reimpressão, sua posição (a partir do topo) e o horário de solicitação.
+
+Capacidade da Pilha:
+
+A pilha tem uma capacidade máxima definida. O sistema deve impedir novas solicitações de reimpressão quando a capacidade for atingida.
+
+Objetivo:
+
+Desenvolver um programa que implemente essa lógica utilizando uma estrutura de dados de pilha. O programa deve simular as operações de reimpressão e fornecer relatórios sobre os documentos armazenados e o tempo de atendimento.
+
+A entrega:
+
+os nomes completos dos integrantes do grupo e seus RA’s;
+os códigos das aplicações e das classes Pilha e Fila, para o novo tipo de dados. Certifiquem-se de criar as estruturas como as vistas em sala. Não serão aceitas estruturas prontas de qualquer API, nem criadas por alguma IA;
+o arquivo de entrada utilizado;
+Para facilitar, envie um arquivo texto com os nome e os integrantes e o link do git que contém os arquivos de código e o arquivo de entrada.
+
+O prazo é 31/05/2025, 23h59.
+
+O grupo pode ser o mesmo do PI, basta que um elemento entregue com os nomes de todos os integrantes.
+
+ 
+
+Bons estudos e mãos à obra!
+
+Profa. Andreia Machion
