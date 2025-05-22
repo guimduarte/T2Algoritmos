@@ -1,0 +1,3 @@
+1) As implementações estão funcionado, porem o programa é randomico, apenas testando se ele armazenaria tudo
+
+2) tudo
