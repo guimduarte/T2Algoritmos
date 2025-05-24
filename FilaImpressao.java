@@ -1,3 +1,5 @@
+import java.time.LocalDateTime;
+
 public class FilaImpressao {
     private Documento[] dados;
     private int primeiro;
