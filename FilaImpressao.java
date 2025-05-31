@@ -1,4 +1,3 @@
-import java.time.LocalDateTime;
 
 public class FilaImpressao {
     private Documento[] dados;
@@ -47,20 +46,19 @@ public class FilaImpressao {
     public int consultarPosicao(String nomeArquivo) {
         for (int i = primeiro, cont = 0; cont < ocupacao; cont++, i = proximaPosicao(i)) {
             if (dados[i].getArquivo().equals(nomeArquivo)) {
-                return cont + 1; 
+                return cont + 1;
             }
         }
-        return -1; 
+        return -1;
     }
 
-    public long calcularTempoEspera(String nomeArquivo) {
+    public String getHorarioSolicitacaoPorNome(String nomeArquivo) {
         for (int i = primeiro, cont = 0; cont < ocupacao; cont++, i = proximaPosicao(i)) {
             if (dados[i].getArquivo().equals(nomeArquivo)) {
-                LocalDateTime agora = LocalDateTime.now();
-                return java.time.Duration.between(dados[i].getHorarioSocilitado(), agora).toMinutes();
+                return dados[i].getHorario(); 
             }
         }
-        return -1; 
+        return null;
     }
 
     @Override
@@ -69,6 +67,7 @@ public class FilaImpressao {
             return "Fila de impressão vazia.";
         }
         StringBuilder sb = new StringBuilder();
+        sb.append("Ocupação: ").append(ocupacao).append("/").append(dados.length).append("\n");
         for (int i = primeiro, cont = 0; cont < ocupacao; cont++, i = proximaPosicao(i)) {
             sb.append(dados[i].toString()).append("\n");
         }

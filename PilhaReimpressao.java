@@ -1,16 +1,32 @@
-import java.time.LocalDateTime;
+
 
 public class PilhaReimpressao {
     private No topo;
+    private int capacidade;
+    private int ocupacao;
+
+    public PilhaReimpressao(int capacidade) {
+        this.topo = null;
+        this.capacidade = capacidade;
+        this.ocupacao = 0;
+    }
 
     public boolean estaVazia() {
-        return topo == null;
+        return ocupacao == 0;
+    }
+
+    public boolean estaCheia() {
+        return ocupacao == capacidade;
     }
 
     public void empilhar(Documento documento) {
+        if (estaCheia()) {
+            throw new RuntimeException("Pilha de reimpressão cheia! Capacidade máxima atingida.");
+        }
         No novoNo = new No(documento);
         novoNo.setProximo(topo);
         topo = novoNo;
+        ocupacao++;
     }
 
     public Documento desempilhar() {
@@ -19,6 +35,7 @@ public class PilhaReimpressao {
         }
         Documento documento = topo.getDocumento();
         topo = topo.getProximo();
+        ocupacao--;
         return documento;
     }
 
@@ -32,19 +49,18 @@ public class PilhaReimpressao {
             atual = atual.getProximo();
             posicao++;
         }
-        return -1; 
+        return -1;
     }
 
-    public long calcularTempoEspera(String nomeArquivo) {
+    public String getHorarioSolicitacaoPorNome(String nomeArquivo) {
         No atual = topo;
         while (atual != null) {
             if (atual.getDocumento().getArquivo().equals(nomeArquivo)) {
-                LocalDateTime agora = LocalDateTime.now();
-                return java.time.Duration.between(atual.getDocumento().getHorarioSocilitado(), agora).toMinutes();
+                return atual.getDocumento().getHorario();
             }
             atual = atual.getProximo();
         }
-        return -1; 
+        return null;
     }
 
     @Override
@@ -53,6 +69,7 @@ public class PilhaReimpressao {
             return "Pilha de reimpressão vazia.";
         }
         StringBuilder sb = new StringBuilder();
+        sb.append("Ocupação: ").append(ocupacao).append("/").append(capacidade).append("\n");
         No atual = topo;
         while (atual != null) {
             sb.append(atual.getDocumento().toString()).append("\n");

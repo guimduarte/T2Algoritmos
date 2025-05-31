@@ -1,4 +1,3 @@
-// 1
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -25,7 +24,6 @@ public class Documento {
         return horario;
     }
     
-    //formatar horario dia/mes/ano // hora:minuto:segundo
     public String getHorario(){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         return horario.format(formatter);
@@ -35,5 +33,4 @@ public class Documento {
     public String toString() {
         return "Arquivo: " + arquivo + ", Usuário: " + usuario + ", Solicitado em: " + getHorario();
     }
-
 }
