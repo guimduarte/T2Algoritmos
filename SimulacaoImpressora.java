@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 import java.time.LocalDateTime;
-//LocalDateTime ao inves do date, pois é mais novo, conciso e imutavel.
+//LocalDateTime ao inves do Date, pois é mais novo, conciso e imutavel.
 import java.time.format.DateTimeFormatter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -29,7 +29,7 @@ public class SimulacaoImpressora {
                     String nomeUsuario = partes[1].trim();
 
                     if (nomeArquivo.isEmpty() || nomeUsuario.isEmpty()) {
-                        System.err.println("AVISO: Linha ignorada (campos vazios): \"" + linha + "\" no arquivo " + nomeArquivoDeEntrada);
+                        System.err.println("Ignorando as linhas vazias: \"" + linha + "\" no arquivo " + nomeArquivoDeEntrada);
                         continue;
                     }
 
@@ -38,15 +38,15 @@ public class SimulacaoImpressora {
                         System.out.println("Do arquivo -> Adicionado à fila: " + nomeArquivo + " (Usuário: " + nomeUsuario + ")");
                         documentosAdicionados++;
                     } else {
-                        System.err.println("AVISO: Fila de impressão cheia. Não foi possível adicionar o documento do arquivo: " + nomeArquivo);
+                        System.err.println("Fila cheia. Não foi possível adicionar o documento do arquivo: " + nomeArquivo);
                     }
                 } else {
-                    System.err.println("AVISO: Linha mal formatada ignorada: \"" + linha + "\" no arquivo " + nomeArquivoDeEntrada + " (Esperado: nomeArquivo,nomeUsuario)");
+                    System.err.println("formatação ruim: \"" + linha + "\" no arquivo " + nomeArquivoDeEntrada + " (Esperado: nomeArquivo,nomeUsuario)");
                 }
             }
             String resumoLeitura = String.format("Leitura de '%s' concluída.\nLidas %d linhas.\nAdicionados %d documentos à fila de impressão.",
                                                 nomeArquivoDeEntrada, documentosLidos, documentosAdicionados);
-            JOptionPane.showMessageDialog(null, resumoLeitura, "Carga Inicial de Arquivos", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, resumoLeitura, "Arquivos carregados", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(null,
@@ -111,7 +111,7 @@ public class SimulacaoImpressora {
                                 String solicitadoStrFila = horarioSolicitacaoFila.format(timeOnlyFormatter);
                                 String atendidoStrFila = horarioAtendimentoFila.format(timeOnlyFormatter);
 
-                                String mensagemFila = String.format("%s por %s - Solicitado: %s - Atendido: %s - Espera: %ds",
+                                String mensagemFila = String.format("%s por %s - Solicitado: %s - Impresso: %s - Espera: %ds",
                                         docImpressoFila.getArquivo(),
                                         docImpressoFila.getUsuario(),
                                         solicitadoStrFila,
@@ -189,7 +189,7 @@ public class SimulacaoImpressora {
                                 String solicitadoStrPilha = horarioSolicitacaoPilha.format(timeOnlyFormatter);
                                 String atendidoStrPilha = horarioAtendimentoPilha.format(timeOnlyFormatter);
 
-                                String mensagemPilha = String.format("%s por %s - Solicitado: %s - Atendido: %s - Espera: %ds",
+                                String mensagemPilha = String.format("%s por %s - Solicitado: %s - Impresso: %s - Espera: %ds",
                                         docReimpresso.getArquivo(),
                                         docReimpresso.getUsuario(),
                                         solicitadoStrPilha,
